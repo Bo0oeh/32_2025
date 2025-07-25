@@ -8,8 +8,8 @@ function goNext() {
 // select-team.html: 진영 선택 후 페이지 이동
 function chooseTeam(team) {
   if (team === 'black') {
-    window.location.href = "black_missions.html";
+    window.location.href = "black.html";
   } else if (team === 'white') {
-    window.location.href = "white_missions.html";
+    window.location.href = "white.html";
   }
 }

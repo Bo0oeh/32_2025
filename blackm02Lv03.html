@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>blackm02Lv03</title>
+    <style>
+        body {
+            background: url(black.jpg) no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            height: 100vh;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 520px;
+            background-color: black;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px white;
+            min-height: 560px;
+            position: relative;
+        }
+
+        .mission-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #dcdcdc;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .question-line {
+            font-size: 23px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .question-sub {
+            color: white;
+            font-size: 16px;
+            display: block;
+            text-align: center;
+            margin-top: -30px;
+            margin-bottom: 20px;
+        }
+
+        .question-permission {
+            text-align: center;
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .choice-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0;
+        }
+
+        .choice-button {
+            padding: 10px 16px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 16px;
+            border: 2px solid #ff3300;
+            background-color: hsl(24, 100%, 97%);
+            color: #ff6600;
+            cursor: pointer;
+            width: 80%;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        .choice-button:hover {
+            background-color: #ff3300;
+            color: white;
+        }
+
+        .choice-button.correct {
+            background-color: #28a745 !important;
+            color: white !important;
+            border-color: #28a745 !important;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: green;
+        }
+
+        #next-stage {
+            margin-top: 20px;
+            display: none;
+            text-align: right;
+        }
+
+        #next-stage a {
+            color: #0eff9e;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #next-stage a:hover {
+            text-decoration: underline;
+        }
+
+        #error-popup {
+            display: none;
+            background-color: #ffebeb;
+            color: #cc0000;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeOut 0.5s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-8px);
+            }
+
+            40% {
+                transform: translateX(8px);
+            }
+
+            60% {
+                transform: translateX(-6px);
+            }
+
+            80% {
+                transform: translateX(6px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .shake {
+            animation: shake 0.4s ease;
+        }
+
+        .flash-red {
+            background-color: #ffe6e6 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <h1 class="mission-title">미션 02</h1>
+        <p class="question-line"><strong>💡Lv 03:</strong> 악성 앱 제작</p>
+        <span class="question-sub">사용자의 문자 메시지를 읽어오기 위해 요청해야 하는 권한으로 알맞은 것은?</span>
+        <div class="question-permission">android.permission.[ ? ]</div>
+
+        <div class="choice-container">
+            <button class="choice-button" onclick="selectChoice('(1)', this)">(1) CAMERA</button>
+            <button class="choice-button" onclick="selectChoice('(2)', this)">(2) ACCESS_FINE_LOCATION</button>
+            <button class="choice-button" onclick="selectChoice('(3)', this)">(3) READ_SMS</button>
+            <button class="choice-button" onclick="selectChoice('(4)', this)">(4) READ_CONTACTS</button>
+        </div>
+
+        <p id="result"></p>
+        <div id="error-popup">❌ 오답</div>
+
+        <div id="next-stage">
+            <a href="mission2.html">다음 페이지로 &gt;</a>
+        </div>
+
+        <!-- ✅ 힌트 버튼 -->
+        <div style="margin-top: 30px; text-align: center; position: relative;">
+            <button onclick="toggleHint()"
+                style="padding: 10px 16px; font-size: 14px; cursor: pointer; border-radius: 8px; border: 1px solid #00462A; background-color: white;">
+                🔍 힌트 보기
+            </button>
+
+            <!-- ✅ 힌트 상자 -->
+            <div id="hint-box" style="display: none; position: absolute; left: 50%; transform: translateX(-50%); top: 50px;
+                background-color: #f9f9f9; border-left: 4px solid #00462A;
+                padding: 15px; border-radius: 8px; font-size: 15px; width: 90%; text-align: left; z-index: 10;">
+                <p>
+                <h2>SMS</h2><strong>Short Message Service의 약자</strong>로, 흔히 문자 메시지라고 불리는 단문 메시지 서비스
+                </p>
+                <br><br>
+                <p>
+                <h2>Contact</h2>연락처
+                </p>
+            </div>
+        </div>
+
+        <script>
+            function selectChoice(choice, btn) {
+                const result = document.getElementById('result');
+                const nextStage = document.getElementById('next-stage');
+                const container = document.getElementById('container');
+                const popup = document.getElementById('error-popup');
+                const buttons = document.querySelectorAll('.choice-button');
+
+                buttons.forEach(b => b.classList.remove('correct')); // 모든 버튼 초기화
+
+                if (choice === '(3)') {
+                    btn.classList.add('correct'); // 정답 버튼만 초록색
+                    result.textContent = "🟢 정답";
+                    nextStage.style.display = "block";
+                    popup.style.display = "none";
+                    container.classList.remove('shake', 'flash-red');
+                } else {
+                    result.textContent = "";
+                    nextStage.style.display = "none";
+                    container.classList.add('flash-red', 'shake');
+                    popup.style.display = "block";
+                    setTimeout(() => {
+                        container.classList.remove('flash-red', 'shake');
+                        popup.style.display = "none";
+                    }, 1500);
+                }
+            }
+
+            function toggleHint() {
+                const hintBox = document.getElementById("hint-box");
+                hintBox.style.display = (hintBox.style.display === "none") ? "block" : "none";
+            }
+        </script>
+    </div>
+</body>
+
+</html>

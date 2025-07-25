@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>blackm02Lv01</title>
+  <style>
+    body {
+      background: url(black.jpg) no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      height: 100vh;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 0;
+      background-color: rgb(0, 0, 0);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgb(255, 255, 255);
+      transition: background-color 0.3s ease;
+      min-height: 580px;
+      position: relative;
+    }
+
+    .mission-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #dcdcdc;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .question-line {
+      font-size: 23px;
+      margin-top: 10px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .question-sub {
+      font-size: 16px;
+      color: #cccccc;
+      display: block;
+      text-align: center;
+      margin-top: -25px;
+      margin-bottom: 30px;
+    }
+
+    .choice-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .choice-button {
+      padding: 10px 16px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 16px;
+      border: 2px solid #ff3300;
+      background-color: hsl(24, 100%, 97%);
+      color: #ff6600;
+      cursor: pointer;
+      width: 80%;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .choice-button:hover {
+      background-color: #ff3300;
+      color: white;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: green;
+    }
+
+    #next-stage {
+      margin-top: 20px;
+      display: none;
+      text-align: right;
+    }
+
+    #next-stage a {
+      color: #0eff9e;
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #next-stage a:hover {
+      text-decoration: underline;
+    }
+
+    #error-popup {
+      display: none;
+      background-color: #ffebeb;
+      color: #cc0000;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 20px;
+      text-align: center;
+      animation: fadeOut 0.5s forwards;
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      80% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        display: none;
+      }
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+
+      20% {
+        transform: translateX(-8px);
+      }
+
+      40% {
+        transform: translateX(8px);
+      }
+
+      60% {
+        transform: translateX(-6px);
+      }
+
+      80% {
+        transform: translateX(6px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .shake {
+      animation: shake 0.4s ease;
+    }
+
+    .flash-red {
+      background-color: #ffe6e6 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="container">
+    <h1 class="mission-title">미션 02</h1>
+    <p class="question-line"><strong>💡Lv 01:</strong> 피싱 문자 제작</p>
+    <span class="question-sub">다음 중 사용자가 클릭할 가능성이 가장 높은 피싱 문자 메시지는?</span>
+
+    <div class="choice-container">
+      <button class="choice-button" onclick="selectChoice('(1)', this)">
+        (1) [CG 택배] 귀하의 택배가 배송 중입니다. <br>
+        확인: <u>http://cg-check.shop/track</u>
+      </button>
+      <button class="choice-button" onclick="selectChoice('(2)', this)">
+        (2) [택배 회사] 택배 옥천 허브 도착. 링크를 클릭해 확인하세요.
+      </button>
+      <button class="choice-button" onclick="selectChoice('(3)', this)">
+        (3) 안녕하세요, 이것 보세요 → <u>http://attack.me</u>
+      </button>
+      <button class="choice-button" onclick="selectChoice('(4)', this)">
+        (4) [주식 정보] 급등주 종목 공유합니다.
+      </button>
+    </div>
+
+    <!-- ✅ 힌트 버튼과 상자 -->
+    <div style="margin-top: 30px; text-align: center;">
+      <button onclick="toggleHint()" style="
+        padding: 10px 16px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 8px;
+        border: 1px solid #00462A;
+        background-color: white;
+        color: #00462A;
+        font-weight: bold;
+      ">
+        🔍 힌트 보기
+      </button>
+
+      <div id="hint-box" style="
+        display: none;
+        margin-top: 15px;
+        background-color: #f9f9f9;
+        border-left: 4px solid #00462A;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 15px;
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+      ">
+        <p><strong>🧠 스미싱</strong></p>
+        <p><strong>SMS + Phishing</strong>의 합성어. 문자 메시지를 이용해 사용자를 속여 악성 사이트로 유도하거나 앱 설치를 유도하는 공격 방식</p>
+      </div>
+    </div>
+
+    <p id="result"></p>
+    <div id="error-popup">❌ 오답</div>
+
+    <div id="next-stage">
+      <a href="mission2.html">다음 페이지로 &gt;</a>
+    </div>
+  </div>
+
+  <script>
+    let selectedChoice = '';
+
+    function selectChoice(choice, element) {
+      selectedChoice = choice;
+      document.querySelectorAll('.choice-button').forEach(btn => {
+        btn.style.backgroundColor = 'hsl(24, 100%, 97%)';
+        btn.style.color = '#ff6600';
+      });
+      element.style.backgroundColor = '#ff3300';
+      element.style.color = '#ffffff';
+
+      checkAnswer();
+    }
+
+    function checkAnswer() {
+      const result = document.getElementById('result');
+      const nextStage = document.getElementById('next-stage');
+      const container = document.getElementById('container');
+      const popup = document.getElementById('error-popup');
+
+      if (selectedChoice === '(1)') {
+        result.textContent = "🟢 정답";
+        nextStage.style.display = "block";
+        popup.style.display = "none";
+        container.classList.remove('shake', 'flash-red');
+      } else {
+        result.textContent = "";
+        nextStage.style.display = "none";
+
+        container.classList.add('flash-red', 'shake');
+        popup.style.display = "block";
+
+        setTimeout(() => {
+          container.classList.remove('flash-red', 'shake');
+          popup.style.display = "none";
+        }, 1500);
+      }
+    }
+
+    function toggleHint() {
+      const hintBox = document.getElementById("hint-box");
+      hintBox.style.display = (hintBox.style.display === "none") ? "block" : "none";
+    }
+  </script>
+</body>
+
+</html>

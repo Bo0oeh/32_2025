@@ -6,19 +6,24 @@
     <title>blackm1Lv1</title>
     <style>
         body {
-            background-color: #f5f5f5;
+            background: url(black.jpg) no-repeat center center fixed;
+            background-size: cover;
             font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
+            height: 100vh;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
             max-width: 520px;
-            margin: 40px auto;
-            background-color: white;
+            margin: 0;
+            background-color: rgb(0, 0, 0);
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 12px rgb(255, 255, 255);
             transition: background-color 0.3s ease;
             min-height: 480px;
             /* 높이 늘림 */
@@ -27,16 +32,17 @@
         .mission-title {
             font-size: 15px;
             font-weight: 600;
-            color: #999999;
+            color: #dcdcdc;
             margin-bottom: 10px;
             text-align: center;
         }
 
         .question-line {
-            font-size: 17px;
+            font-size: 23px;
             margin-top: 20px;
-            margin-bottom: 200px;            /* ✅ 간격 늘림 */
-            text-align: left;
+            margin-bottom: 100px;            
+            text-align: center;
+            color: #ffffff;
         }
 
 
@@ -53,9 +59,9 @@
             font-size: 15px;
             font-weight: bold;
             border-radius: 16px;
-            border: 2px solid #00462A;
-            background-color: #E6F2ED;
-            color: #00462A;
+            border: 2px solid #ff3300;
+            background-color: hsl(24, 100%, 97%);
+            color: #ff6600;
             cursor: pointer;
             width: 60%;
             text-align: left;
@@ -63,7 +69,7 @@
         }
 
         .choice-button:hover {
-            background-color: #00462A;
+            background-color: #ff3300;
             color: white;
         }
 
@@ -81,7 +87,7 @@
         }
 
         #next-stage a {
-            color: #00462A;
+            color: #0eff9e;
             font-size: 14px;
             text-decoration: none;
             font-weight: bold;

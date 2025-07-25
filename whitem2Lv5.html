@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>whitem1Lv3</title>
+  <style>
+    body {
+      background: url(security.jpg) no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      height: 100vh;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 0;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      min-height: 480px;
+      width: 100%;
+    }
+
+    .mission-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #999999;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .question-line {
+      font-size: 23px;
+            margin-top: 20px;
+            margin-bottom: 100px;
+            text-align: center;
+    }
+
+    .question-sub {
+      display: block;
+      margin-left: 22px;
+    }
+
+    .input-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .answer-input {
+      width: 80%;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #2b6eff;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    .submit-container {
+      text-align: right;
+    }
+
+    #submit-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2b6eff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: green;
+    }
+
+    #next-stage {
+      margin-top: 20px;
+      display: none;
+      text-align: right;
+    }
+
+    #next-stage a {
+      color: #00462A;
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #next-stage a:hover {
+      text-decoration: underline;
+    }
+
+    #error-popup {
+      display: none;
+      background-color: #ffebeb;
+      color: #cc0000;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+
+      20% {
+        transform: translateX(-8px);
+      }
+
+      40% {
+        transform: translateX(8px);
+      }
+
+      60% {
+        transform: translateX(-6px);
+      }
+
+      80% {
+        transform: translateX(6px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .shake {
+      animation: shake 0.2s ease;
+    }
+
+    .flash-red {
+      background-color: #ffd6d6 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="container">
+    <h1 class="mission-title">미션 02</h1>
+    <p class="question-line">
+      <strong>💡 문제 5:</strong> 로그 확인
+      <span class="question-sub">
+        아래는 공격자의 서버에 저장된 로그의 일부이다. <br>
+        leak 값은 base64로 인코딩된 문자열이다. 이를 디코딩한 결과는?
+      </span>
+    </p>
+
+    <!-- 입력 칸 가운데 정렬된 부분 -->
+    <div class="input-wrapper">
+      <input type="text" id="user-answer" class="answer-input" />
+    </div>
+
+    <div class="submit-container">
+      <button id="submit-button" onclick="checkAnswer()">정답 확인</button>
+    </div>
+
+    <p id="result"></p>
+    <div id="error-popup">❌ 오답</div>
+
+    <div id="next-stage">
+      <a href="mission2.html">다음 페이지로 &gt;</a>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById('user-answer').value.trim();
+      const correctAnswers = ['contacts_exported'];
+      const container = document.getElementById('container');
+      const result = document.getElementById('result');
+      const popup = document.getElementById('error-popup');
+      const nextStage = document.getElementById('next-stage');
+
+      if (correctAnswers.includes(input)) {
+        result.textContent = '🟢 정답';
+        popup.style.display = 'none';
+        nextStage.style.display = 'block';
+        container.classList.remove('flash-red', 'shake');
+      } else {
+        result.textContent = '';
+        nextStage.style.display = 'none';
+        popup.style.display = 'block';
+        container.classList.add('flash-red', 'shake');
+        setTimeout(() => {
+          container.classList.remove('flash-red', 'shake');
+        }, 400);
+      }
+    }
+  </script>
+</body>
+
+</html>

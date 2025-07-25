@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>진영 선택</title>
+  <link rel="stylesheet" href="style-select.css" />
+</head>
+
+<body>
+  <div class="main-wrapper">
+    <h1 class="centered-title">
+      메일이 도착했습니다!
+    </h1>
+
+    <div class="team-container">
+      <!-- 화이트 해커 -->
+      <div class="mail-box white">
+        <div class="mail-header">from <strong>SoB (= Sweetest of Best) 화이트</strong></div>
+        <div class="mail-body">
+          안녕하세요, 수습 해커님.
+
+          본 기관은 세상에서 가장 스윗한 화이트 해커 집단 <strong>SoB</strong>입니다.
+
+          우리는 디지털 위협에 맞서 싸우는 세계 각국의 보안 전문가로 구성된 단체이며,
+
+          당신의 실력과 윤리의식에 주목하고 있습니다.
+
+          보안 문제가 점점 심각해지고 단순 해킹을 넘어서 국가 차원 위협, AI 악용, 공급망 공격, 내부자 유출까지 다양하게 발생하는 지금,
+
+          💡 이제는 당신이 결정해야 할 때입니다.
+
+          당신의 기술을 보호에 사용할 준비가 되셨습니까?
+
+          정의는 준비된 자만이 선택할 수 있습니다.
+
+        </div>
+        <button class="join-btn" onclick="chooseTeam('white')">[🛡 화이트 해커 SoB에 합류]</button>
+      </div>
+
+      <!-- 블랙 해커 -->
+      <div class="mail-box black">
+        <div class="mail-header">from <strong>WoB (= Worst of Best) 블랙</strong></div>
+        <div class="mail-body">
+          🕶 당신의 흔적은 detected 됐고, 우린 깊은 impression 받았다.
+
+          당신이 보여준 침투 skill, 시스템 분석 capability, 그리고 규칙을 깨뜨리는 sensational sense.
+
+          우리는 그것을 필요로 해.
+
+          ⚠ 이 메일은 60초 후 자가 deleted.
+
+          결정 is yours.
+
+          규칙을 지킬 건가? 아니면 부숴버릴 건가? ⚒️
+
+        </div>
+        <button class="join-btn" onclick="chooseTeam('black')">[💀 블랙 해커 WoB에 JOIN]</button>
+      </div>
+    </div>
+  </div>
+  <script src="script-select.js"></script>
+</body>
+
+</html>

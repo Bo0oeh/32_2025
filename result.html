@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>리포트 페이지</title>
+  <link rel="stylesheet" href="style-mission.css" />
+</head>
+<body>
+  <div class="certificate-container">
+    <h1>🎓 최종 리포트</h1>
+    <p><strong>내가 번 돈:</strong> <span id="finalMoney">0</span>원</p>
+
+    <div class="report-info">
+      <p><strong>이름:</strong> <span id="resultName"></span></p>
+      <p><strong>단과대:</strong> <span id="resultDepartment"></span></p>
+      <p><strong>진영:</strong> <span id="resultTeam"></span></p>
+      <p><strong>성과도:</strong> <span id="resultProgress"></span>%</p>
+    </div>
+
+    <div class="rank-container">
+      <h2>💡 학과별 누적 수당 순위</h2>
+      <div class="rank-columns">
+        <div class="rank-box">
+          <h3>블랙 해커</h3>
+          <ol id="blackRank">
+            <li>---</li>
+            <li>---</li>
+            <li>---</li>
+          </ol>
+        </div>
+        <div class="rank-box">
+          <h3>화이트 해커</h3>
+          <ol id="whiteRank">
+            <li>---</li>
+            <li>---</li>
+            <li>---</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script-mission.js"></script>
+</body>
+</html>

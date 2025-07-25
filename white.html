@@ -1,11 +1,13 @@
 <!-- white.html -->
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <title>SoB Page</title>
   <link rel="stylesheet" href="style-mission.css" />
 </head>
+
 <body class="white-theme">
   <button id="summary-button" onclick="location.href='result.html'">정산하기</button>
 
@@ -13,12 +15,12 @@
     <h1>SoB에 오신 여러분!</h1>
     <h2>환영합니다 :)</h2>
 
-    <button class="mission-btn" onclick="location.href='mission1.html'">미션 01: 인스타그램 계정 탈취를 막자</button>
-    <button class="mission-btn" onclick="location.href='mission2.html'">미션 02: 택배 피싱 문자를 분석하여 대응하라</button>
-    <button class="mission-btn" onclick="location.href='mission3.html'">미션 03: 공용 와이파이를 이용한 해킹 공격을 방어하자!</button>
+    <button class="mission-btn" onclick="location.href='whitem1Lv1.html'">미션 01: 인스타그램 계정 탈취를 막자</button>
+    <button class="mission-btn" onclick="location.href='whitem1Lv2.html'">미션 02: 택배 피싱 문자를 분석하여 대응하라</button>
+    <button class="mission-btn" onclick="location.href='whitem1Lv3.html'">미션 03: 공용 와이파이를 이용한 해킹 공격을 방어하자!</button>
   </div>
 </body>
-  <script>
+<script>
   function goToLevel(level) {
     window.location.href = `whitem1Lv${level}.html`;
   }

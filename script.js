@@ -22,7 +22,9 @@ function startGame() {
   document.getElementById("signup-popup").style.display = "flex";
 }
 
+
 function goToMission() {
   alert("다음 페이지 이동");
+  window.location.href = 'intro.html'; // 진영 선택 전 페이지
 }
 

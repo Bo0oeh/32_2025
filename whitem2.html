@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>미션 1 - </title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      background: url('security-4851426.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .main-wrapper {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 900px;
+      width: 90%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      text-align: center;
+    }
+
+    .slide {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.6s ease;
+      margin: 12px 0;
+    }
+
+    .slide.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hover-line {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hover-line:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    .step-box {
+      border: 2px solid #391b00;
+      border-radius: 10px;
+      padding: 10px 30px;
+      margin: 30px auto 0;
+      width: fit-content;
+      background-color: #fee4bc;
+      color: #000;
+      text-align: center;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .step-box>.slide:first-of-type {
+      margin-bottom: 0px;
+    }
+
+    .step-box>.slide:last-of-type {
+      margin-bottom: 10px;
+    }
+
+    .arrow {
+      font-size: 28px;
+      color: #ec3333;
+    }
+
+    .button-wrapper {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .confirm-button {
+      padding: 10px 30px;
+      font-size: 16px;
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .confirm-button:hover {
+      background-color: #dddddd;
+      transform: scale(1.03);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    ✅ 결과
+  </style>
+</head>
+
+<body>
+
+  <div class="main-wrapper">
+    <div class="slide hover-line">
+      <h1>미션 1: </h1>
+    </div>
+    <div class="slide hover-line">당신은 화이트 해커의 제안을 받아들이고 첫 번째 임무를 수행하게 됩니다.</div>
+    <div class="slide hover-line">목표는 하는 것.</div>
+    <div class="slide hover-line">블라블라</div>
+    <div class="slide hover-line">🎯 <strong>목표:</strong> 목표 내용</div>
+
+    <div class="step-box">
+      <div class="slide hover-line">
+        <h2>📌미션 수행 단계</h2>
+      </div><br />
+      <div class="slide hover-line">1단계: </div>
+      <div class="slide hover-line arrow">↓</div>
+      <div class="slide hover-line">2단계: </div>
+      <div class="slide hover-line arrow">↓</div>
+      <div class="slide hover-line">3단계: </div>
+      <div class="slide hover-line arrow">↓</div>
+      <div class="slide hover-line">4단계: </div>
+    </div>
+    <div class="button-wrapper">
+      <button class="confirm-button">확인</button>
+    </div>
+  </div>
+
+  <script>
+    const lines = document.querySelectorAll('.slide');
+    lines.forEach((line, i) => {
+      setTimeout(() => {
+        line.classList.add('show');
+      }, i * 700); // 0.7초 간격 등장
+    });
+  </script>
+
+</body>
+
+</html>

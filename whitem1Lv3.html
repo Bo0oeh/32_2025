@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>whitem1Lv3</title>
+    <title>whitem01Lv03</title>
     <style>
         body {
             background: url(security.jpg) no-repeat center center fixed;
@@ -98,6 +98,7 @@
             font-weight: bold;
             text-align: center;
             color: green;
+            font-size: 20px;
         }
 
         #next-stage {
@@ -191,8 +192,9 @@
             <label class="choice-option"><input type="checkbox" id="A"> A. 비밀번호 즉시 변경</label>
             <label class="choice-option"><input type="checkbox" id="B"> B. 2단계 인증 활성화</label>
             <label class="choice-option"><input type="checkbox" id="C"> C. 펑펑 울기</label>
-            <label class="choice-option"><input type="checkbox" id="C"> D. 스토리에 해커 협박 글 올리기</label>
-            <label class="choice-option"><input type="checkbox" id="C"> E. 인스타그램 고객센터에 신고하기</label>
+            <label class="choice-option"><input type="checkbox" id="D"> D. 스토리에 해커 협박 글 올리기</label>
+            <label class="choice-option"><input type="checkbox" id="E"> E. 인스타그램 고객센터에 신고하기</label>
+
         </div>
 
         <div class="submit-container">
@@ -212,12 +214,14 @@
             const A = document.getElementById('A').checked;
             const B = document.getElementById('B').checked;
             const C = document.getElementById('C').checked;
+            const D = document.getElementById('D').checked;
+            const E = document.getElementById('E').checked;
             const result = document.getElementById('result');
             const nextStage = document.getElementById('next-stage');
             const container = document.getElementById('container');
             const popup = document.getElementById('error-popup');
 
-            if (A) {
+            if (A && B && !C && !D && E) {
                 result.textContent = "🟢 정답";
                 nextStage.style.display = "block";
                 popup.style.display = "none";
@@ -230,9 +234,11 @@
 
                 setTimeout(() => {
                     container.classList.remove('flash-red', 'shake');
-                }, 400);
+                    popup.style.display = "none";
+                }, 1500);
             }
         }
+
     </script>
 </body>
 

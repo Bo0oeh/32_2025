@@ -23,7 +23,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -38,7 +39,8 @@ html, body {
 }
 
 /* 제목 기본 */
-h1, h2 {
+h1,
+h2 {
   margin: 0 0 24px 0;
   text-align: center;
 }
@@ -164,20 +166,70 @@ body.black-theme {
    Result (정산) Page
    ========================= */
 .certificate {
-  width: 70%;
   margin: 120px auto 80px;
   padding: 50px 40px;
-  border: 10px solid gold;
-  background-color: #fff;
+  border: 5px solid gold;
+  background: url(hacking.png) no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
   color: #000;
   text-align: center;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
+
+.rank-container {
+  margin-top: 50px;
+}
+
+.rank-columns {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.rank-box {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  width: 40%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rank-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.report-summary-box {
+  background-color: #ffffffcc;
+  /* 반투명 흰 배경 */
+  border: 2px solid #333;
+  border-radius: 16px;
+  padding: 40px;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 100px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  font-size: 16px;
+}
+
+.report-summary-box p {
+  margin: 10px 0;
+}
+
 
 /* =========================
    Utilities
    ========================= */
-.hidden { display: none !important; }
+.hidden {
+  display: none !important;
+}
 
 /* =========================
    Responsive
@@ -186,10 +238,12 @@ body.black-theme {
   .container {
     margin: 40px auto 60px;
   }
+
   .mission-btn {
     font-size: 16px;
     min-height: 56px;
   }
+
   .certificate {
     width: 90%;
     padding: 30px 20px;

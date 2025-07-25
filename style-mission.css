@@ -141,15 +141,39 @@ body.black-theme {
 /* =========================
    Result (정산) Page
    ========================= */
-.certificate {
-  width: 70%;
-  margin: 120px auto 80px;
-  padding: 50px 40px;
-  border: 10px solid gold;
-  background-color: #fff;
-  color: #000;
+.certificate-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  border: 6px double #888;
+  border-radius: 12px;
+  background-color: rgba(255,255,255,0.95);
   text-align: center;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.rank-container {
+  margin-top: 50px;
+}
+
+.rank-columns {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.rank-box {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  width: 40%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.rank-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
 /* =========================
